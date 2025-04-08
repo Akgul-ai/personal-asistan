@@ -1,0 +1,38 @@
+assistant-backend/
+├── pom.xml             // Proje bağımlılıkları ve build ayarları
+└── src/
+    └── main/
+        ├── java/
+        │   └── com/
+        │       └── yourcompany/
+        │           └── assistant/
+        │               ├── AssistantApplication.java  // Spring Boot Başlangıç Noktası
+        │               ├── config/
+        │               │   ├── SecurityConfig.java     // Spring Security Ayarları
+        │               │   └── AppConfig.java        // Genel Uygulama Ayarları (API Key vb.)
+        │               ├── controller/
+        │               │   ├── AuthController.java     // Kimlik Doğrulama Endpoint'leri (/login, /register)
+        │               │   └── AssistantController.java// Asistan Komutları Endpoint'leri (/api/assistant/...)
+        │               ├── dto/                      // Data Transfer Objects (İstek/Yanıt nesneleri)
+        │               │   ├── UserDto.java
+        │               │   ├── WeatherDto.java
+        │               │   ├── NewsDto.java
+        │               │   └── CommandDto.java
+        │               ├── model/                      // Veritabanı Varlıkları (Eğer JPA kullanılıyorsa)
+        │               │   └── User.java
+        │               ├── repository/                 // Veritabanı Erişim Katmanı (Eğer JPA kullanılıyorsa)
+        │               │   └── UserRepository.java
+        │               ├── security/
+        │               │   ├── JwtTokenProvider.java   // JWT oluşturma/doğrulama (Eğer JWT kullanılıyorsa)
+        │               │   └── UserDetailsServiceImpl.java // Spring Security için kullanıcı detayları servisi
+        │               └── service/
+        │                   ├── AuthService.java        // Kimlik doğrulama iş mantığı
+        │                   ├── WeatherService.java     // Hava Durumu API entegrasyonu
+        │                   ├── NewsService.java        // Haber API entegrasyonu
+        │                   ├── CalendarService.java    // Google Calendar API entegrasyonu
+        │                   ├── NlpService.java         // Temel NLP işlemleri
+        │                   └── CommandProcessingService.java // Gelen komutları işleme ve yönlendirme
+        └── resources/
+            ├── application.properties  // Uygulama ayarları (veritabanı, API key'ler vb.)
+            ├── static/                 // Statik dosyalar (CSS, JS, Resimler - Eğer basit bir UI varsa)
+            └── templates/              // HTML şablonları (Eğer Thymeleaf gibi bir şablon motoru kullanılıyorsa)
