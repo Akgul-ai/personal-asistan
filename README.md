@@ -1,0 +1,2 @@
+# personal-asistan
+kişisel asistan
