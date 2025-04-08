@@ -1,0 +1,14 @@
+bu backend API'sini kullanacak bir web sayfası (frontend) ayrıca geliştirilmelidir. Bu genellikle HTML, CSS ve JavaScript (React, Angular, Vue veya vanilla JS) kullanılarak yapılır.
+Kullanıcı Arayüzü: Kullanıcının komutları yazabileceği bir metin alanı ve/veya sesli komut için bir mikrofon butonu içerir.
+API Çağrıları: JavaScript (fetch veya axios gibi kütüphanelerle), kullanıcının girdiği komutu veya sesli komutun metin karşılığını backend'deki /api/assistant/command veya /api/assistant/voice-command endpoint'ine POST isteği ile gönderir. Kimlik doğrulama gerekiyorsa (JWT kullanılıyorsa), isteğin Authorization header'ına token eklenir.
+Yanıt Gösterimi: Backend'den dönen yanıtı alır ve kullanıcıya gösterir.
+Ses İşleme (Frontend): Sesli komut için JavaScript'in Web Speech API'si kullanılabilir. Bu API, kullanıcının konuşmasını metne çevirir ve bu metin backend'e gönderilir.
+Kimlik Doğrulama: Login/Register sayfaları oluşturulur ve bunlar backend'deki /auth/login, /auth/register endpoint'lerini çağırır. Başarılı login sonrası alınan token (eğer JWT ise) localStorage veya sessionStorage'da saklanıp sonraki isteklerde kullanılır.
+Özet Çıktı:
+Bu yapı ile oluşturulan Java backend uygulaması:
+/auth/** endpoint'leri üzerinden kullanıcı kaydı ve girişi (kimlik doğrulama) yapabilir.
+/api/assistant/** endpoint'leri üzerinden (kimlik doğrulaması yapıldıktan sonra) yazılı veya sesli (metne çevrilmiş) komutları alabilir.
+CommandProcessingService ve NlpService aracılığıyla komutun ne anlama geldiğini (hava durumu, haber vs.) ve ilgili parametreleri (konum, konu) temel düzeyde anlayabilir.
+İlgili servisi (WeatherService, NewsService, CalendarService) çağırarak harici API'lerden veriyi çekebilir.
+Aldığı veriyi işleyip kullanıcıya anlamlı bir metin yanıtı olarak döndürebilir.
+Bu iskelet, 2. Aşama hedeflerini karşılayan bir Java web uygulaması geliştirmek için sağlam bir temel oluşturur. Her bir servisin ve NLP kısmının detaylı implementasyonu gerekecektir.
