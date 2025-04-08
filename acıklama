@@ -1,0 +1,4 @@
+Bu servisler ilgili API'lere HTTP istekleri yapmak için Spring'in RestTemplate veya WebClient'ını kullanır.
+API Key'leri application.properties dosyasından @Value anotasyonu ile alırlar.
+API'lerden dönen JSON yanıtlarını dto paketindeki ilgili DTO (Data Transfer Object) sınıflarına map ederler (Jackson kütüphanesi otomatik yapar).
+CalendarService özellikle Google OAuth 2.0 akışını yönetmeli ve kullanıcıya özel erişim/yenileme token'larını güvenli bir şekilde saklamalıdır (örneğin veritabanında kullanıcıyla ilişkilendirerek). Bu kısım diğerlerine göre daha karmaşıktır.
